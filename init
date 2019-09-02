@@ -1,0 +1,5 @@
+<input type="text" name="firstname" placeholder="first name" id="prompt">
+
+<button onclick="test()">click me</button>
+
+<p id="hello">test<p>
