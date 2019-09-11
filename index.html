@@ -11,7 +11,7 @@ document.getElementById("hello").innerHTML = "Hi my name is " +  prompter;
 }
   </script> 
 
-  <p>HW 2</p>
+  <h1>Index Finder</h1>
 <button onclick="myFunction()">Index Finder</button>
 <script>
 function myFunction() {
@@ -25,4 +25,30 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
       alert(alphabet.indexOf(alphabet[i]));
   }
 }
+</script>
+
+<h1>HW 2 Loops and arrays</h1>
+<div class="stuff"></div>
+<script>
+var stuffDiv = document.body.querySelector(".stuff");
+var animal = ["dog", "fish", "cat", "shark", "cat", "dog"];
+var number = 0;
+function printAnimal(ani) {
+  //   more processing inside of the function
+  return ani;
+}
+var word = printAnimal(animal[1]);
+
+for (var i = 0; i < animal.length; i++) {
+  var listItem = document.createElement("div");
+  if (animal[i]=="dog") {
+    listItem.innerHTML = "Borf Borf";
+  } else if(animal[i]=="cat"){
+    listItem.innerHTML = "I'm a cat";  
+  } else {
+    listItem.innerHTML = "I'm a animal";
+  }
+  stuffDiv.appendChild(listItem);
+}
+
 </script>
