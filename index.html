@@ -40,3 +40,31 @@ buttonDiv.addEventListener("click", function() {
 });
 
 </script>
+
+<p>In class index finder</p>
+<div id="number">test</div>
+<button id="clicker">Click Me</button>
+<script>
+var milesPerYear;
+var gasCost;
+var milesDriven;
+var price;
+var numberDiv = document.body.querySelector("#number");
+var buttonDiv = document.body.querySelector("#clicker");
+
+function calc(ph1, ph2, ph3) {
+  milesPerYear = Number(prompt(ph1));
+
+  gasCost = Number(prompt(ph2));
+
+  milesDriven = Number(prompt(ph3));
+  
+  price = gasCost*milesDriven; 
+  
+   numberDiv.innerHTML = "to drive a car with a mpg of "+ milesPerYear + " for " + gasCost + " a gallon would cost $" + price;
+}
+
+buttonDiv.addEventListener("click", function() {
+  calc("MPG", "Cost of Gas", "Miles Driven");
+});
+</script>
