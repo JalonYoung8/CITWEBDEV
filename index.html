@@ -83,3 +83,68 @@ for (var i = 0; i < animal.length; i++) {
 }
 
 </script>
+
+<h1>Dynamic Interactions</h1>
+<style>
+  .card{
+  border:1px black solid;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.up{
+  visibility: hidden;
+}
+</style>  
+
+<script>
+  var wrapper = document.body.querySelector(".wrap");
+
+var array = [
+  { message: "HULLO", color: "red" },
+  { message: "Hi there!", color: "blue" },
+  { message: "Sup homie", color: "green" }
+];
+
+for (var i = 0; i < array.length; i++) {
+  var userEle = document.createElement("div");
+  var messageEle = document.createElement("p");
+  var colorEle = document.createElement("h1");
+  colorEle.innerHTML = array[i].color;
+  messageEle.innerHTML = "hello";
+
+  switch (array[i].color) {
+    case (array.color = "red"):
+      userEle.style.backgroundColor = "red";
+      messageEle.classList.add("up");
+      userEle.onmouseover = function() {
+        messageEle.classList.remove("up");
+      messageEle.innerHTML = array[0].message;
+      };
+      break;
+    case (array.color = "blue"):
+      userEle.style.backgroundColor = "blue";
+      userEle.onclick = function() {
+        messageEle.innerHTML = array[1].message;
+      };
+      break;
+    case (array.color = "green"):
+      userEle.style.backgroundColor = "green";
+      userEle.onclick = function() {
+        messageEle.innerHTML = array[2].message;
+      };
+      break;
+  }
+
+
+  userEle.appendChild(colorEle);
+  userEle.classList.add("card");
+  userEle.appendChild(messageEle);
+  wrapper.appendChild(userEle);
+}
+
+function myfunction() {
+  alert("hey");
+}
+
+ </script> 
