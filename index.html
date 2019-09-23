@@ -148,3 +148,164 @@ function myfunction() {
 }
 
  </script> 
+
+<h1>Transformer array</h1>
+
+<div class="wrapper"></div>
+
+<style>
+.character{
+  border:2px solid black;
+  border-radius:10px;
+  width:200vh;
+}
+
+.character div{
+  margin-bottom:10px;
+}
+
+.autobot{
+  background-color:red;
+  border:1px solid #991f00;
+}
+
+.decepticon{
+  background-color:#660066;
+  border:1px solid #330033;
+}
+
+img{
+  height:40px;
+  position: relative; 
+  left: 90%;
+  top: -165px;
+}
+
+p{
+  font-size: 250%;
+  position: relative; 
+  top: -90px;
+}  
+</style>
+
+<script>
+  var wrapper = document.body.querySelector(".wrapper");
+
+var chrs = [
+  { name: "Optimus Prime", class: "leader", afl: "autobot", vehicle: "truck" },
+  { name: "Megatron", class: "leader", afl: "decepticon", vehicle: "tank" },
+  { name: "Bumblebee", class: "scout", afl: "autobot", vehicle: "car" },
+  { name: "Starscream", class: "scout", afl: "decepticon", vehicle: "plane" },
+  { name: "Ironhide", class: "soldier", afl: "autobot", vehicle: "truck" },
+  { name: "Brawl", class: "soldier", afl: "decepticon", vehicle: "tank" }
+];
+
+// do not write any elements into your HTML file
+
+// loop through the above array to append a div using .append() into the body tag
+
+// the appended div should always have the ".character" class
+
+// display the characters name, class, and vehicle in the div
+
+// Information should be displayed as "Name: Optimus Prime", with the next information on a different line
+
+// if the character being looped through has an afl of autobot/decepticon, give them either a class of "autobot", or "decepitcon"
+
+// in the top right, based on the top information, insert an img elemnt for either the autobot or decepticon
+
+// link for autobot image https://cdn4.iconfinder.com/data/icons/proglyphs-free/512/Autobot-512.png
+
+// link for decepticon image https://cdn4.iconfinder.com/data/icons/proglyphs-free/512/Decepticon-512.png
+
+// in the characters' "class" data, all of those values' letters should be capitalized when displayed in the div (so 'leader' should become 'LEADER')
+
+// in the characters' "vehicle" data, change the color of that value in the div based on its value
+// truck=blue
+// tank=green
+// card=gold
+// plane=white
+
+for (var i = 0; i < chrs.length; i++) {
+  var transformChar = document.createElement("div");
+  var nameEle = document.createElement("h1");
+  var classEle = document.createElement("h1");
+  var aflEle = document.createElement("h4");
+  var vehicleEle = document.createElement("p");
+  var imgEle = document.createElement("IMG");
+
+  transformChar.classList.add("character");
+  
+    switch (chrs[i].afl) {
+    case (chrs[i].afl = "decepticon"):
+      imgEle.setAttribute(
+        "src",
+        "https://cdn4.iconfinder.com/data/icons/proglyphs-free/512/Decepticon-512.png"
+      );
+      break;
+    case (chrs[i].afl = "autobot"):
+      imgEle.setAttribute(
+        "src",
+        "https://cdn4.iconfinder.com/data/icons/proglyphs-free/512/Autobot-512.png"
+      );
+  }
+
+
+  nameEle.innerHTML = "Name: " + chrs[i].name;
+
+  switch (chrs[i].class) {
+    case (chrs[i].class = "leader"):
+      classEle.innerHTML = "Rank: LEADER";
+      break;
+      case (chrs[i].class = "scout"):
+      classEle.innerHTML = "Rank: scout";
+      break;
+          case (chrs[i].class = "soldier"):
+      classEle.innerHTML = "Rank: soldier";
+      break;
+  }
+
+  switch (chrs[i].afl) {
+    case (chrs[i].afl = "autobot"):
+      aflEle.innerHTML = "autobot";
+      transformChar.classList.add("autobot");
+
+      break;
+    case (chrs[i].afl = "decepticon"):
+      aflEle.innerHTML = "decepticon";
+      transformChar.classList.add("decepticon");
+      break;
+  }
+  
+  switch (chrs[i].vehicle){
+      case (chrs[i].vehicle = "truck"):
+      vehicleEle.innerHTML = "truck";
+      vehicleEle.style.color = "blue";
+      break;
+            case (chrs[i].vehicle = "tank"):
+      vehicleEle.innerHTML = "tank";
+      vehicleEle.style.color = "green";
+      break;
+            case (chrs[i].vehicle = "car"):
+      vehicleEle.innerHTML = "car";
+      vehicleEle.style.color = "gold";
+      break;
+            case (chrs[i].vehicle = "plane"):
+      vehicleEle.innerHTML = "plane";
+      vehicleEle.style.color = "white";
+      break;
+  }
+
+
+  // append elements into parent element
+  transformChar.appendChild(nameEle);
+  transformChar.appendChild(classEle);
+  transformChar.appendChild(aflEle);
+  transformChar.appendChild(imgEle);
+  transformChar.appendChild(vehicleEle);
+  // append parent Element into wrapper
+
+  wrapper.appendChild(transformChar);
+}
+
+</script> 
