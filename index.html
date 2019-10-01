@@ -377,3 +377,79 @@ for(var i=0; i<data.length; i++){
 
   
  </script>
+
+<h1>Constructors</h1>
+<style>
+div{
+  height: 90px;
+  width: 200px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+
+</style>
+<script>
+// data set up
+var data = [
+  {
+    name:"Bob",
+    color:"orange"
+  },
+  {
+    name:"Bobbest",
+    color:"blue"
+  },
+  {
+    name:"Bobber",
+    color:"yellow"
+  }
+]
+
+// empty array that will be filled with constructors
+
+var boxes =[];
+
+// construcotr created
+function box(color, name){
+  var that = this;
+  this.name=name;
+  this.color=color;
+  this.number=0;
+  this.ele=document.createElement("div");
+  this.ele.style.backgroundColor=this.color;
+  this.ele.style.height="50px";
+  // this.ele.innerHTML=this.name;
+  this.numberEle=document.createElement("div");
+  this.numberEle.innerHTML=this.number;
+  this.ele.appendChild(this.numberEle);
+  
+  this.ele.addEventListener("click", function(){
+    that.addUp();
+  });
+  
+  document.body.appendChild(this.ele);
+
+}
+
+
+// function associated with above constructor
+box.prototype.addUp = function(){
+  this.number++;
+  this.numberEle.innerHTML=this.number;
+}
+
+
+// pushes constructors into array
+for(var i=0; i<data.length; i++){
+  boxes.push(new box(data[i].color, data[i].name))
+}
+
+
+// chooses constructor from array and uses prototype on that particular constructor outside f the click
+boxes[2].addUp();
+
+
+</script> 
