@@ -1,76 +1,66 @@
 
-<h1>Constructors</h1>
-<style>
-div{
-  height: 90px;
-  width: 200px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 18px;
-  padding-top: 10px;
-}
+<h1>Turtles</h1>
+<div class = "wrap"></div>
 
-
-</style>
 <script>
-// data set up
-var data = [
+var wrapper = document.body.querySelector(".wrap");
+var array = [
   {
-    name:"Bob",
-    color:"orange"
+    name:"Leo",
+    color:"blue",
+    noise:"Slash"
   },
   {
-    name:"Bobbest",
-    color:"blue"
+    name:"Donnie",
+    color:"purple",
+    noise:"Bonk"
   },
   {
-    name:"Bobber",
-    color:"yellow"
+    name:"Raph",
+    color:"red",
+    noise:"Kachink"
+  },
+  {
+    name:"Mikey",
+    color:"orange",
+    noise:"Whack"
   }
 ]
 
-// empty array that will be filled with constructors
+ var messageEle = document.createElement("div");
 
-var boxes =[];
+wrapper.appendChild(messageEle);
 
-// construcotr created
-function box(color, name){
-  var that = this;
-  this.name=name;
-  this.color=color;
-  this.number=0;
-  this.ele=document.createElement("div");
-  this.ele.style.backgroundColor=this.color;
-  this.ele.style.height="50px";
-  // this.ele.innerHTML=this.name;
-  this.numberEle=document.createElement("div");
-  this.numberEle.innerHTML=this.number;
-  this.ele.appendChild(this.numberEle);
+for(var i = 0; i < array.length; i++){
+  var userEle = document.createElement("div");
+  userEle.id = "id" + i;  
+  userEle.style.color = "white";
+  userEle.style.height = "100px";
+  userEle.style.width = "100px";  
+  userEle.style.background = "green";
+  userEle.style.marginBottom = "20px";
+  userEle.innerHTML = array[i].name;
+  const color = array[i].color;
+
+  userEle.addEventListener("mouseover", function(){
+    
+      this.style.border = `.5em solid ${color}`;
+  })
+
+  const noise = array[i].noise
   
-  this.ele.addEventListener("click", function(){
-    that.addUp();
-  });
+    userEle.addEventListener("click", function(){
+      messageEle.innerHTML = noise;
+  })
   
-  document.body.appendChild(this.ele);
-
+userEle.addEventListener("mouseout", function(){
+        this.style.border = 'none';
+})  
+  
+ 
+  wrapper.appendChild(userEle);
 }
 
-
-// function associated with above constructor
-box.prototype.addUp = function(){
-  this.number++;
-  this.numberEle.innerHTML=this.number;
-}
-
-
-// pushes constructors into array
-for(var i=0; i<data.length; i++){
-  boxes.push(new box(data[i].color, data[i].name))
-}
-
-
-// chooses constructor from array and uses prototype on that particular constructor outside f the click
-boxes[2].addUp();
-
+ 
 
 </script> 
