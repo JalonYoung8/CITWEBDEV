@@ -1,29 +1,35 @@
 
-<h1>Turtles</h1>
+<h1>Mid Term</h1>
 <div class = "wrap"></div>
+
+<style>
+  body {
+  background-color: grey;
+}
+</style>  
 
 <script>
 var wrapper = document.body.querySelector(".wrap");
 var array = [
-  {
-    name:"Leo",
-    color:"blue",
-    noise:"Slash"
+   {
+    name:"Bob",
+    color:"red"
   },
   {
-    name:"Donnie",
-    color:"purple",
-    noise:"Bonk"
+    name:"Bobber",
+    color:"orange"
   },
   {
-    name:"Raph",
-    color:"red",
-    noise:"Kachink"
+    name:"Bobbette",
+    color:"green"
   },
   {
-    name:"Mikey",
-    color:"orange",
-    noise:"Whack"
+    name:"Bobbers",
+    color:"blue"
+  },
+  {
+    name:"Boberino",
+    color:"purple"
   }
 ]
 
@@ -33,34 +39,28 @@ wrapper.appendChild(messageEle);
 
 for(var i = 0; i < array.length; i++){
   var userEle = document.createElement("div");
+  var nameEle = document.createElement("h1");
   userEle.id = "id" + i;  
   userEle.style.color = "white";
-  userEle.style.height = "100px";
-  userEle.style.width = "100px";  
-  userEle.style.background = "green";
+  
+  userEle.style.background = array[i].color;
   userEle.style.marginBottom = "20px";
-  userEle.innerHTML = array[i].name;
+  nameEle.innerHTML = array[i].name;
   const color = array[i].color;
 
-  userEle.addEventListener("mouseover", function(){
+  userEle.addEventListener("click", function(){
     
-      this.style.border = `.5em solid ${color}`;
+      this.style.border = `.5em solid black`;
   })
 
-  const noise = array[i].noise
-  
-    userEle.addEventListener("click", function(){
-      messageEle.innerHTML = noise;
-  })
+
   
 userEle.addEventListener("mouseout", function(){
         this.style.border = 'none';
 })  
   
- 
+  userEle.appendChild(nameEle);
   wrapper.appendChild(userEle);
 }
-
- 
 
 </script> 
