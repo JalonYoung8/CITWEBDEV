@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Vue exercise</title>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+
+    <li v-for="stuff in list" v-bind:class="{coke:stuff.drink==='coke', highCal:stuff.calories>=100, pepsi:stuff.drink==='pepsi', lemonade:stuff.drink==='lemonade' }">
+      {{stuff.drink}}  {{stuff.calories}}
+  </li>
+  </ul>
+</div>
+<!-- partial -->
+<style>
+.highCal{
+  border-style: solid;
+  border-color:red;
+}
+.coke{
+  color:red;
+  font-size:2em;
+  background: blue;
+}
+.pepsi{
+  color:blue;
+  font-size:2em;
+  background: red;
+}
+.lemonade{
+  color: purple;
+  font-size:2em;
+  background: yellow;
+}
+</style>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+  <script>
+  var app = new Vue ({
+el:'#app',
+data:{
+  list:[
+    {drink: "coke", calories: 120},
+    {drink: "pepsi", calories: 80},
+    {drink: "lemonade", calories: 45}
+  ]
+}
+});
+  </script>
+</body>
+</html>
