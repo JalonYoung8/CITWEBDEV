@@ -2,79 +2,25 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Turtles</title>
-  
+  <title>Destiny App</title>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
- <h1>Turtles</h1>
-  <a href="drinksVUE.html">drinks</a>
-  <a href="midterm.html">midterm</a>
-  <a href="fruit">fruit</a>
-  <!-- partial:index.partial.html -->
-<div class = "wrap"></div>
+<!-- partial:index.partial.html -->
+<div id="destiny-app">
+  <div class="card" v-bind:class="classApplier(chrs.color)" v-for="chrs in cards">
+
+    <img v-bind:src="chrs.img">
+
+    <div class="health">{{chrs.health}}</div>
+    <div class="rarity" v-bind:class="rareApplier(chrs.rarity)">{{chrs.rarity}}</div>
+    <div class="name">{{chrs.name}}</div>
+    <div class="affl" v-bind:class="afflApplier(chrs.affl)">{{chrs.affl}}</div>
+  </div>
+</div>
 <!-- partial -->
-  <script>
-    var wrapper = document.body.querySelector(".wrap");
-var array = [
-  {
-    name:"Leo",
-    color:"blue",
-    noise:"Slash"
-  },
-  {
-    name:"Donnie",
-    color:"purple",
-    noise:"Bonk"
-  },
-  {
-    name:"Raph",
-    color:"red",
-    noise:"Kachink"
-  },
-  {
-    name:"Mikey",
-    color:"orange",
-    noise:"Whack"
-  }
-]
-
- var messageEle = document.createElement("div");
-
-wrapper.appendChild(messageEle);
-
-for(var i = 0; i < array.length; i++){
-  var userEle = document.createElement("div");
-  userEle.id = "id" + i;  
-  userEle.style.color = "white";
-  userEle.style.height = "100px";
-  userEle.style.width = "100px";  
-  userEle.style.background = "green";
-  userEle.style.marginBottom = "20px";
-  userEle.innerHTML = array[i].name;
-  const color = array[i].color;
-
-  userEle.addEventListener("mouseover", function(){
-    
-      this.style.border = `.5em solid ${color}`;
-  })
-
-  const noise = array[i].noise
-  
-    userEle.addEventListener("click", function(){
-      messageEle.innerHTML = noise;
-  })
-  
-userEle.addEventListener("mouseout", function(){
-        this.style.border = 'none';
-})  
-  
- 
-  wrapper.appendChild(userEle);
-}
-    </script>
-
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script><script  src="./script.js"></script>
 
 </body>
-  
 </html>
