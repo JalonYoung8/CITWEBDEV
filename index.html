@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Destiny App</title>
-  <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
@@ -20,7 +19,201 @@
   </div>
 </div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script><script  src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script>
+  
+  <script> 
+    new Vue({
+  el: "#destiny-app",
+  data: {
+    cards: [
+      {
+        name: "Rey",
+        rarity: 'legendary',
+        setNumber: 100,
+        affl: "hero",
+        color: "blue",
+        health: 10,
+        img: "https://swdestinydb.com/bundles/cards/en/01/01038.jpg"
+      },
+      {
+        name: "Han Solo",
+        rarity: 'rare',
+        setNumber: 36,
+        affl: "hero",
+        color: "yellow",
+        health: 10,
+        img:
+          "http://images-cdn.fantasyflightgames.com/filer_public/3b/15/3b1513ab-1bf2-46f9-93ec-9fb0246e567b/sws17_main.png"
+      },
+      {
+        name: "General Grievous",
+        rarity: 'rare',
+        setNumber: 50,
+        affl: "villain",
+        color: "red",
+        health: 13,
+        img:
+          "https://i.pinimg.com/originals/67/fe/ca/67feca5ed7040713e386d568860701a8.jpg"
+      },
+      {
+        name: "Darth Vader",
+        rarity: 'legendary',
+        setNumber: 5,
+        affl: "villain",
+        color: "blue",
+        health: 11,
+        img:
+          "http://images-cdn.fantasyflightgames.com/filer_public/70/2d/702dba51-4b9f-46db-ad74-36216b9fdbe9/swd13_preview2.jpg"
+      }
+    ]
+  },
+  methods: {
+    classApplier(color) {
+      return {
+        blue: color === "blue",
+        red: color === "red",
+        yellow: color === "yellow"
+      };
+    },
+    rareApplier(bool) {
+      return {
+        rare:bool === 'rare',
+        legendary:bool === 'legendary'
+      };
+    },
+    afflApplier(affl) {
+      return {
+        hero: affl === "hero",
+        villain: affl === "villain",
+        neutral: affl === "neutral"
+      };
+    },
+    imgStyler(image){
+      return{
+        backgroundImage: 'url(' + image + ')'
+      }
+    }
+  }
+});
+
+  </script>
 
 </body>
+  
+  <style>
+    
+
+.card{
+  height:350px;
+  width:250px;
+  border:solid 1px black;
+  position:relative;
+  font-family: Roboto, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+img{
+  height:230px;
+}
+
+
+.blue{
+  background-color:blue;
+  border: 2px blue solid;
+}
+
+.red{
+  background-color:red;
+  border: 2px red solid;
+}
+
+.yellow{
+  background-color:yellow;
+  border: 2px yellow solid;
+}
+
+.gray{
+  background-color:gray;
+  border: 2px gray solid;
+}
+
+.rarity{
+  position:absolute;
+  bottom:0;
+  right:0;
+  height:40px;
+  width:80px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.rare{
+  background-color:cyan;
+  color:black;
+  
+}
+
+.legendary{
+  background-color:purple;
+  color:black;
+}
+
+.health{
+  border-radius:60px;
+  height:60px;
+  width:60px;
+  background-color:crimson;
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:36px;
+  top:0;
+  right:0;
+}
+
+.name{
+  height:50px;
+  width:160px;
+  background-color:lightgrey;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.affl{
+  height:40px;
+  width:100px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.hero{
+ background-color:white;
+  color:black;
+}
+
+.villain{
+  background-color:black;
+  color:white;
+}
+
+.neutral{
+  background-color:gray;
+  color:black;
+}
+  </style>
 </html>
