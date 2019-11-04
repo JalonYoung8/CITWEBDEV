@@ -6,22 +6,7 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div id="destiny-app">
-  <div class="card" v-bind:class="classApplier(chrs.color)" v-for="chrs in cards">
-
-    <img v-bind:src="chrs.img">
-
-    <div class="health">{{chrs.health}}</div>
-    <div class="rarity" v-bind:class="rareApplier(chrs.rarity)">{{chrs.rarity}}</div>
-    <div class="name">{{chrs.name}}</div>
-    <div class="affl" v-bind:class="afflApplier(chrs.affl)">{{chrs.affl}}</div>
-  </div>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script>
-  
-  <script> 
+   <script> 
     new Vue({
   el: "#destiny-app",
   data: {
@@ -97,10 +82,8 @@
 });
 
   </script>
-
-</body>
-  
-  <style>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script>
+ <style>
     
 
 .card{
@@ -216,4 +199,22 @@ img{
   color:black;
 }
   </style>
+<!-- partial:index.partial.html -->
+<div id="destiny-app">
+  <div class="card" v-bind:class="classApplier(chrs.color)" v-for="chrs in cards">
+
+    <img v-bind:src="chrs.img">
+
+    <div class="health">{{chrs.health}}</div>
+    <div class="rarity" v-bind:class="rareApplier(chrs.rarity)">{{chrs.rarity}}</div>
+    <div class="name">{{chrs.name}}</div>
+    <div class="affl" v-bind:class="afflApplier(chrs.affl)">{{chrs.affl}}</div>
+  </div>
+</div>
+<!-- partial -->
+  
+ 
+</body>
+  
+ 
 </html>
