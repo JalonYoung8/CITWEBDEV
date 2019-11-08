@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Vue JS TEST</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <input type="text" name="test" v-on:keyup.13="pressedEnter">
+  <h1>{{msg}}</h1>
+  <button v-on:click="msg1"> Click Me</button>
+  <h1>{{message1}}</h1>
+  <button v-on:click="msg2"> Click Me2</button>
+  <h1>{{message2}}</h1>
+  <div class="box" v-on:contextmenu="msg3">
+  </div>
+  <h1>{{message3}}</h1>
+
+</div>
+<!-- partial -->
+<style>
+.box{
+  height: 100px;
+  width: 100px;
+  background: blue;
+}
+</style>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+  <script>
+  var app = new Vue({
+  el: "#app",
+  data: {
+    msg: "hi",
+    counter: 0,
+    message1: "",
+    message2: "",
+    message3: ""
+  },
+  methods: {
+    pressedEnter: function() {
+      this.msg = document.querySelector("input[name=test]").value;
+    },
+    msg1: function() {
+      this.message1 = "hello";
+    },
+    msg2: function() {
+      this.message2 = "Yo";
+    },
+    msg3: function(e) {
+      e.preventDefault();
+      this.message3 = "You Right Clicked";
+    }
+  }
+});
+
+  </script>
+
+</body>
+</html>
