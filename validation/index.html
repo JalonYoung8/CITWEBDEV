@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Vue template</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <br>
+<h5>Name: <input v-model="name"/></h5>
+<p v-if="validN">Valid Name</p>
+  <br>
+  <h5>Age: <input v-model="age"/></h5>
+<p v-if="validA">Valid Age</p>
+  <br>
+<h5>Email: <input v-model="email"/></h5>
+  <p v-if="validE">Valid Age</p>
+
+<br>
+    <h5>Message:</h5> <textarea v-model="message" name="message" rows="10" cols="30"></textarea>
+  <p v-if="validM">Valid Message</p>
+
+  <h5> Submit: <button v-on:click="submitValidator()">Say Hi</button></h5>
+
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
