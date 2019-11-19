@@ -13,7 +13,7 @@ var app = new Vue({
 }, 
   watch: {
     name: function(newValue) {
-      if(newValue.length > 16){
+      if(newValue.length >= 2){
         this.validN = true;
       }else{
         this.validN = false;
