@@ -1,0 +1,30 @@
+/*
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add:function(){
+           this.toggle = !this.toggle;
+
+      if (this.toggle) {
+        this.color = "green";
+      } else {
+        this.color = "red";
+      }
+    }
+
+v-on:click="add()"
+*/
