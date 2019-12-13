@@ -1,0 +1,85 @@
+.card{
+    height:350px;
+  width:250px;
+  border:solid 1px black;
+  position:relative;
+  font-family: Roboto, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color: var(--color);
+}
+
+.cart{
+  float: right;
+}
+
+.popUp{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.popUp2 {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+img{
+  height:230px;
+}
+
+.popUp img{
+  height:100px;
+}
+
+
+
+.orange{
+  color: black;
+}
+.orange:hover {
+  color: white;
+  background-color: orange;
+}
+.yellow {
+  color: black;
+
+
+}
+.yellow:hover {
+  color: white;
+  background-color: yellow
+}
+
+.blue{
+  color: black;
+}
+.blue:hover {
+  background-color: blue;
+  color: white;
+}
+/*
+  this.cart.push({
+        id: ,
+        name: this.instrument.name.indexOf(1),
+        added: false
+      });
+
+v-bind:class="colorApplier(index)"
+
+ v-bind:class="{ popUp: isActive }" @click="toggleClass()"
+
+
+*/
